@@ -1,11 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven'
-      args '-v /Users/fatih/.m2:root/.m2'
-    }
-    
-  }
+  agent none
   stages {
     stage('build') {
       steps {
