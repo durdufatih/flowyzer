@@ -1,14 +1,12 @@
-def mvn_version = 'M3'
-
 pipeline {
   agent any
+  tools {
+    maven 'M3'
+  }
   stages {
     stage('build') {
-      agent any
       steps {
-       withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
-           sh "mvn clean"
-        }
+        sh 'mvn -B -DskipTests clean'
       }
     }
   }
